@@ -162,17 +162,132 @@ layered :
 		Exception	: 
 					GlobleExceptionHander
 					we have to Create a custome Exception ....!
-		
-
-
-
-
-
 
 Tomorrow : 
+				Develop API 
+						--------REST API 
+							Postman 
+							Swagger 
+									Controller , Services , MODEL , REPO , EXCEPTION 
+						
 				Global Exception handling ? 
 				Hibernate validation  ?
 				
+
+		WEB : 
+		DATA JPA with MySQL 
+		Lombok 
+				Security ?
+
+
+
+
+
+
+
+
+			build a Employeemanager CRUD APP 
+					controller , servies , Repo , Model , Exception , Security 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				create 5 test files and write a unit test case for this ? 
+
+
+		GetEMployeeById
+		DeleteEMployeeById
+	
+		getALlEmployee
+		deleteAllEMployees
+
+
+		AddEMployee 
+
+
+
+
+
+
+
+
+
+
+		Monolithic 
+			Create API (REST API )
+						--------> test With Postman and Swagger 
+			Layered Architecture 
+						Controller 
+						Services 
+						Model 	
+						Repository
+						Exception 
+						Validation
+						Security 
+						Actuator ....!
+
+						Unit test case using Mockito   
+				Development + Exception + validation  + Secure + test  
+
+		Microservices  
+				Monolithic  vs Microservices
+
+				1 ) How can i communicate with Multiple Services
+						Rest Templet 
+						Web Client 
+						Feign Client 
+				 
+				2 ) How to Track all the multiple services ? 
+					Cloud : 
+						Netflix Eureka :
+								Eureka Server
+								Eureka Client 
+
+				3 ) Which is A Entry Point : 
+					API gate Way ------------- config Server 
+
+				4 ) Load Balancer 
+
+				5 ) Resilience 4J
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
