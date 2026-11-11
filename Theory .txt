@@ -154,6 +154,15 @@ layered :
 			
 
 
+----------------------------------------------
+		Controller 	: http request and responses 
+		Services 	:   business logics 
+		model 		: scheams defiantion 
+		Repository 	: db operation 
+		Exception	: 
+					GlobleExceptionHander
+					we have to Create a custome Exception ....!
+		
 
 
 

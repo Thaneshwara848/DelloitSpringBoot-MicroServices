@@ -1,3 +1,4 @@
+
 package com.example.demo.servicves;
 
 import java.util.List;
@@ -7,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.example.demo.Exceptions.EmployeeNotFoundException;
 import com.example.demo.models.Employee;
 import com.example.demo.repo.MyRepo;
+
 
 @Service
 public class MyServices {
@@ -24,15 +27,20 @@ public class MyServices {
     // 2. Get Employee By ID
     public Employee getEmployeeById(int id) {
         return repo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "Employee not found"));
+                .orElseThrow(() ->
+                    new EmployeeNotFoundException(
+                        "Employee not found with ID: " + id
+                    )
+                );
     }
 
     // 3. Add Employee
     public Employee addEmployee(Employee emp) {
         if (repo.existsById(emp.getId())) {
             throw new ResponseStatusException(
-                    HttpStatus.CONFLICT, "Employee ID already exists");
+                    HttpStatus.CONFLICT,
+                    "Employee ID already exists: " + emp.getId()
+            );
         }
         return repo.save(emp);
     }
