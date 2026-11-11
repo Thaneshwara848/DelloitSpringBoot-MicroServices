@@ -147,6 +147,12 @@ layered :
 		Repository 	: db operation 
 		
 
+		postman : we have to write al apis manually 
+
+		SwaggerL it will document all our API , keet ready 
+			u have to pass value 
+			
+
 
 
 
