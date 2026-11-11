@@ -1,0 +1,18 @@
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.repo.MyEmployeeRepo;
+
+@RestController
+public class MyController {
+	
+	@Autowired
+	private MyEmployeeRepo repo;
+	 // API 1: GET ALL EMPLOYEES
+    @GetMapping("/getAllEmployees")
+    public List<Employee> getAllEmployees() {
+        return repo.findAll();
+    }
+}

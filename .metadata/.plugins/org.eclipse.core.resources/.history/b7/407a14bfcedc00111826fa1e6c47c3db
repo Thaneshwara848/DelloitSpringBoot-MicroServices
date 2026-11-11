@@ -1,0 +1,36 @@
+package com.example.demo.controller;
+
+import java.util.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.Employee;
+
+@RestController
+public class MyController {
+	
+	 List<Employee> employees = new ArrayList<>(); 
+	 
+
+	 	// API 1: Home
+	    @GetMapping("/home")
+	    public String home() {
+	        return "Welcome to Employee Management";
+	    }
+	    
+	    // API 2: Add Employee (POST)
+	    @PostMapping("/addEmployee")
+	    public String addEmployee(@RequestBody Employee emp) {
+	        employees.add(emp);
+	        return "Employee Added Successfully";
+	    }
+	    
+	    // API 3: Get All Employees (GET)
+	    @GetMapping("/getAllEmployees")
+	    public List<Employee> getAllEmployees() {
+	        return employees;
+	    }
+	
+}

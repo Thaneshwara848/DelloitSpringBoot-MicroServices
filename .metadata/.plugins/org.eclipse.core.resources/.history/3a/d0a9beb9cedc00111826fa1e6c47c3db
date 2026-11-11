@@ -1,0 +1,33 @@
+package com.example.demo.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class Employee {
+
+	private int id ;
+	private String name ;
+	private int age ;
+	private int salary;
+	private String desig ;
+
+
+}
+//http://localhost:9999/getAllEmployees
+//http://localhost:9999/addEmployee
+// BODY-->raw---JSON -- 
+/*{
+	  "id": 102,
+	  "name": "Shivu",
+	  "age": 21,
+	  "salary": 70000,
+	  "desig": "Software Engineer"
+	}*/

@@ -1,0 +1,25 @@
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+	
+	@GetMapping("/home")
+	public String homepage() {
+		return "<h1> Hi Welcome to Home Page </h1>";
+	}
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		return "<h1> Hi Welcome to Dashboard Page </h1>";
+	}
+	@GetMapping("/login")
+	public String login() {
+		return "<h1> Hi Welcome to LOGIN Page </h1>";
+	}
+	@GetMapping("/signup")
+	public String signup() {
+		return "<h1> Hi Welcome to SIGNUP Page </h1>";
+	}
+}

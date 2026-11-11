@@ -1,0 +1,188 @@
+REST APis 
+		REST 					vs SOAP 
+data format	json , xml , html txt			xml only 
+
+HTTP methods : 
+			GET 
+			POST 
+			PUT
+			DELETE 
+			PATHC 
+
+Lombok : 
+		@setter 
+		@getter
+		@allArguemntConstructo 
+		@NoArgument 
+		@toString
+		@Data : it includes Setter , getter , toString  
+	how to test our APis ? --------- yes we use POSTMAN ? 
+
+
+
+
+
+		GET 
+			1 ) getAllEmployees 
+			2 ) getEmployeeByid
+
+		POST 
+			1 ) addEmployee
+
+		DELETE 
+			1 ) DeleteAllEmployees 
+			2 ) DeleteEmployeeByid
+
+		PUT 
+			1 ) UpdateEmployee
+
+				You have to TEST in Postman ...!
+Method			Endpoint				Action
+GET			/getAllEmployees			Fetch all
+GET			/getEmployeeById/{id}			Fetch one
+POST			/addEmployee				Create
+DELETE			/deleteAllEmployees			Delete all
+DELETE			/deleteEmployeeById/{id}		Delete one
+PUT			/updateEmployee/{id}			Update one
+GET			/getEmployeeCount			Count employees
+GET			/getEmployeesByDesignation/{desig}	Filter by designation
+GET			/getEmployeesByAge/{age}		Filter by age
+GET			/getEmployeesBySalary/{salary}		Employees earning above salary
+GET			/getHighestPaidEmployee			Highest salary employee
+GET			/getLowestPaidEmployee			Lowest salary employee
+GET			/searchEmployee/{name}			Search by employee name
+GET			/sortEmployeesBySalary			Sort by salary ascending
+PATCH			/updateEmployeeSalary/{id}		Update salary only
+DELETE			/deleteEmployeesByDesignation/{desig}	Delete employees by designation
+
+
+===========================================================================================================
+
+1 ) REST Api's with ArrayList (	Controller + model )
+		Controller : 	http Logics 
+		Model      : 	Employee ------- Lombok (Schema)
+
+2 ) REST Api's with Database (Mysql) (	Controller + model + repo  )
+
+			Controller	 
+			Model 
+			Repo 
+			main file : 
+
+			
+Dependency's : 
+					
+spring web Services 
+					
+Spring boot Dev tool 
+					
+Data JPA 
+					
+MySQL 
+					
+Lombok 	: copy pasted from last project 
+
+
+
+
+
+
+								JPA ------- ready made Methods
+
+		getEmployee : we have rettin logi 		findAll()		
+		getEmployee by 	: we have logica		findById
+		add : 						save()
+		updatye 					update()
+		delete 						deleteAll
+		deleteById					deleteById 
+								deleteOne
+								deletemany
+						REST API --- With MYSQL using JPA 		
+
+				Test All  APIs
+
+Method			URL					JPA Method
+GET			/getAllEmployees			findAll()
+GET			/getEmployeeById/101			findById(101)
+POST			/addEmployee				save(emp)
+DELETE			/deleteAllEmployees			deleteAll()
+DELETE			/deleteEmployeeById/101			deleteById(101)
+PUT			/updateEmployee/101			findById() + save()
+GET			/getEmployeeCount			Total employees
+GET			/getEmployeesByAge/{age}		Find by age
+GET			/getEmployeesByDesignation/{desig}	Find by designation
+GET			/getEmployeesBySalary/{salary}		Salary greater than
+GET			/getEmployeesByName/{name}		Search by name
+GET			/getHighestPaidEmployee			Highest salary
+GET			/getLowestPaidEmployee			Lowest salary
+GET			/sortEmployeesBySalary			Salary ascending
+GET			/getEmployeesByAgeRange			Age between two values
+GET			/getAverageSalary			Average salary
+GET			/getEmployeesBySalaryRange		Salary between two values
+GET			/getEmployeesByDesignationAndAge	Filter using two conditions
+PATCH			/updateSalary/{id}			Update only salary
+DELETE			/deleteByDesignation/{desig}		Delete by designation
+GET			/getTop5HighestPaidEmployees		Top 5 salaries
+
+JDBC---Hibernate ? ----------JPA : JPQL 
+REST API  : https://www.geeksforgeeks.org/springboot/spring-boot-introduction-to-restful-web-services/
+Lombok : https://www.geeksforgeeks.org/advance-java/using-lombok-to-reduce-boilerplate-code-in-spring-boot/
+Data JPA : https://www.geeksforgeeks.org/java/spring-boot-spring-data-jpa/
+CRUD repo vs JPA Repo 
+		Tomorrow : 
+				Global Exception handling ? 
+				Hibernate validation  ?
+				Spring Security ?
+				Spring  API testing  ? : mokito ...!
+	 
+
+
+
+
+
+layered : 
+		Controller 	: http request and responses 
+		Services 	:   business logics 
+		model 		: scheams defiantion 
+		Repository 	: db operation 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

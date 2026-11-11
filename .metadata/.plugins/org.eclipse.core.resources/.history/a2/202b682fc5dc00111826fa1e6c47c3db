@@ -1,0 +1,19 @@
+package com.example.demo.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+public class Employee {
+
+	@Getter
+	@Setter
+	private int id ;
+	
+	@Getter
+	@Setter
+	private String name ;
+	private int age ;
+	private int salary;
+	private String desig ;
+
+}

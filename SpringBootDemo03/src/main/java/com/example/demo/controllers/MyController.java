@@ -1,0 +1,61 @@
+package com.example.demo.controllers;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.models.Employee;
+import com.example.demo.servicves.MyServices;
+
+@RestController
+public class MyController {
+
+    @Autowired
+    private MyServices service;
+
+    // API 1: GET ALL EMPLOYEES
+    @GetMapping("/getAllEmployees")
+    public List<Employee> getAllEmployees() {
+        return service.getAllEmployees();
+    }
+
+    // API 2: GET EMPLOYEE BY ID
+    @GetMapping("/getEmployeeById/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+        return service.getEmployeeById(id);
+    }
+
+    // API 3: ADD EMPLOYEE
+    @PostMapping("/addEmployee")
+    public Employee addEmployee(@RequestBody Employee emp) {
+        return service.addEmployee(emp);
+    }
+
+    // API 4: UPDATE EMPLOYEE
+    @PutMapping("/updateEmployee/{id}")
+    public Employee updateEmployee(
+            @PathVariable int id,
+            @RequestBody Employee emp) {
+        return service.updateEmployee(id, emp);
+    }
+
+    // API 5: DELETE EMPLOYEE BY ID
+    @DeleteMapping("/deleteEmployeeById/{id}")
+    public String deleteEmployeeById(@PathVariable int id) {
+        return service.deleteEmployeeById(id);
+    }
+
+    // API 6: DELETE ALL EMPLOYEES
+    @DeleteMapping("/deleteAllEmployees")
+    public String deleteAllEmployees() {
+        return service.deleteAllEmployees();
+    }
+
+    // API 7: COUNT EMPLOYEES
+    @GetMapping("/countEmployees")
+    public long countEmployees() {
+        return service.countEmployees();
+    }
+}

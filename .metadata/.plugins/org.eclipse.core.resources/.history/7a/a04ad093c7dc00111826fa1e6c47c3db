@@ -1,0 +1,20 @@
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+	
+	@GetMapping("/home")
+	public String homepage() {
+		return "<h1> Hi Welcome to Home Page </h1>";
+	}
+	
+	// REST END POINTS 
+	// CRUD API's with ArrayList : 
+	// CRUD application with Mysql :
+	
+	
+	// 15 minuts 
+}

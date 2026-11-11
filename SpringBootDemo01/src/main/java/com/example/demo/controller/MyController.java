@@ -1,0 +1,112 @@
+package com.example.demo.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.example.demo.model.Employee;
+
+@RestController
+public class MyController {
+
+    List<Employee> employees = new ArrayList<>();
+
+
+    // API 1: GET ALL EMPLOYEES
+    @GetMapping("/getAllEmployees")
+    public List<Employee> getAllEmployees() {
+        return employees;
+    }
+
+
+    // API 2: GET EMPLOYEE BY ID
+    @GetMapping("/getEmployeeById/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+
+        for (Employee emp : employees) {
+            if (emp.getId() == id) {
+                return emp;
+            }
+        }
+
+        throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "Employee Not Found"
+        );
+    }
+
+
+    // API 3: ADD EMPLOYEE
+    @PostMapping("/addEmployee")
+    public String addEmployee(@RequestBody Employee emp) {
+
+        for (Employee e : employees) {
+            if (e.getId() == emp.getId()) {
+                throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "Employee ID Already Exists"
+                );
+            }
+        }
+
+        employees.add(emp);
+
+        return "Employee Added Successfully";
+    }
+
+
+    // API 4: DELETE ALL EMPLOYEES
+    @DeleteMapping("/deleteAllEmployees")
+    public String deleteAllEmployees() {
+
+        employees.clear();
+
+        return "All Employees Deleted Successfully";
+    }
+
+
+    // API 5: DELETE EMPLOYEE BY ID
+    @DeleteMapping("/deleteEmployeeById/{id}")
+    public String deleteEmployeeById(@PathVariable int id) {
+
+        for (Employee emp : employees) {
+
+            if (emp.getId() == id) {
+
+                employees.remove(emp);
+
+                return "Employee Deleted Successfully";
+            }
+        }
+
+        throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "Employee Not Found"
+        );
+    }
+
+
+    // API 6: UPDATE EMPLOYEE
+    @PutMapping("/updateEmployee/{id}")
+    public String updateEmployee(
+            @PathVariable int id,
+            @RequestBody Employee updatedEmp) {
+
+        for (Employee emp : employees) {
+
+            if (emp.getId() == id) {
+
+                emp.setName(updatedEmp.getName());
+                emp.setAge(updatedEmp.getAge());
+                emp.setSalary(updatedEmp.getSalary());
+                emp.setDesig(updatedEmp.getDesig());
+
+                return "Employee Updated Successfully";
+            }
+        }
+
+        throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "Employee Not Found"
+        );
+    }
+}
