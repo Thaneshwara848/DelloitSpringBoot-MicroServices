@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,7 +26,30 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // 2. Response Status Exception - 409, etc.
+    // 2. Validation Failed - 400
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(
+            MethodArgumentNotValidException ex) {
+
+        Map<String, String> errors = new LinkedHashMap<>();
+
+        ex.getBindingResult().getFieldErrors().forEach(error ->
+            errors.put(
+                error.getField(),
+                error.getDefaultMessage()
+            )
+        );
+
+        Map<String, Object> response = new LinkedHashMap<>();
+        response.put("timestamp", LocalDateTime.now());
+        response.put("status", 400);
+        response.put("message", "Validation failed");
+        response.put("errors", errors);
+
+        return ResponseEntity.badRequest().body(response);
+    }
+
+    // 3. Duplicate Employee ID / Other Status Errors
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<Map<String, Object>> handleResponseStatus(
             ResponseStatusException ex) {
@@ -36,7 +60,7 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // 3. Invalid Argument - 400
+    // 4. Invalid Arguments - 400
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleInvalidArgument(
             IllegalArgumentException ex) {
@@ -47,7 +71,7 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // 4. Unexpected Exception - 500
+    // 5. Unexpected Errors - 500
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneralException(
             Exception ex) {
@@ -62,12 +86,12 @@ public class GlobalExceptionHandler {
     private ResponseEntity<Map<String, Object>> buildResponse(
             int status, String message) {
 
-        Map<String, Object> error = new LinkedHashMap<>();
+        Map<String, Object> response = new LinkedHashMap<>();
 
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", status);
-        error.put("message", message);
+        response.put("timestamp", LocalDateTime.now());
+        response.put("status", status);
+        response.put("message", message);
 
-        return ResponseEntity.status(status).body(error);
+        return ResponseEntity.status(status).body(response);
     }
 }

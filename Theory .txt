@@ -169,7 +169,10 @@ layered :
 
 
 
-
+Tomorrow : 
+				Global Exception handling ? 
+				Hibernate validation  ?
+				
 
 
 

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.models.Employee;
 import com.example.demo.servicves.MyServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class MyController {
 
@@ -29,7 +31,7 @@ public class MyController {
 
     // API 3: ADD EMPLOYEE
     @PostMapping("/addEmployee")
-    public Employee addEmployee(@RequestBody Employee emp) {
+    public Employee addEmployee(@Valid @RequestBody Employee emp) {
         return service.addEmployee(emp);
     }
 
@@ -37,7 +39,7 @@ public class MyController {
     @PutMapping("/updateEmployee/{id}")
     public Employee updateEmployee(
             @PathVariable int id,
-            @RequestBody Employee emp) {
+            @Valid @RequestBody Employee emp) {
         return service.updateEmployee(id, emp);
     }
 
