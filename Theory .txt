@@ -237,8 +237,7 @@ Tomorrow :
 						Actuator ....!
 
 						Unit test case using Mockito   
-				Development + Exception + validation  + Secure + test  
-
+				Development + Exception + validation  + Secure + Test  + health  
 		Microservices  
 				Monolithic  vs Microservices
 
@@ -273,26 +272,29 @@ Tomorrow :
 
 
 
+Microservices 1 
+		List of All End Points : 
+					http://localhost:9999/getProductS1
+					http://localhost:9999/getProductS1/101
+					http://localhost:9999/setProdS1
+					http://localhost:9999/deleteProdS1/101
+					http://localhost:9999/updateProdS1/101
+
+
+MicroServies 2 : 
+		list of all the End Points : 
+				
+					http://localhost:9999/getProductS2
+					http://localhost:9999/getProductS2/101
+					http://localhost:9999/setProdS2
+					http://localhost:9999/deleteProdS2/101
+					http://localhost:9999/updateProdS2/101
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			break 15 mintus 
+						11: 45 
 
 
 

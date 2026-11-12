@@ -20700,3 +20700,6 @@ Caused by: com.google.inject.OutOfScopeException: Cannot access Key[type=org.apa
 	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
 	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1050)
 	... 47 common frames omitted
+2026-11-11 18:01:01,313 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@4d6510ca{STOPPING}[10.0.9,sto=0]
+2026-11-11 18:01:01,351 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2e4709d0{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2026-11-11 18:01:02,099 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3782b079{/help,null,STOPPED}
